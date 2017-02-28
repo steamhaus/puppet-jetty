@@ -6,9 +6,11 @@ _options = @configuration.fetch('options', {})
 --module=home-base-warning
 <% _modules.each do |m| %>
 --module=<%= m %>
-<% _options.fetch(m, {}).each do |k,v| %>
-<%= k %>=<%= v %>
 <% end %>
+
+<% _options.each do |o| %>
+<% _options.fetch(o, {}).each do |k,v| %>
+<%= k %>=<%= v %>
 <% end %>
 <% end %>
 
