@@ -9,10 +9,8 @@
 --module=<%= m %>
   <% end %>
 
-  <% _options.each do |o| %>
-    <% _options.fetch(o, {}).each do |k,v| %>
+  <% _options.each do |k,v| %>
 <%= k %>=<%= v %>
-    <% end %>
   <% end %>
 <% end %>
 
