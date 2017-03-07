@@ -1,10 +1,11 @@
 ##
-# = class: jetty::install - The installation of jetty's stuff 
+# = class: jetty::install - The installation of jetty's stuff
 class jetty::install inherits jetty {
 
   $_jetty_home             = "${jetty::root}/jetty"
   $_jetty_tmp              = "${_jetty_home}/tmp"
   $_jetty_logs             = "${_jetty_home}/logs"
+  $_jetty_run              = "${_jetty_home}/run"
   $_jetty_sh               = "${_jetty_home}/bin/jetty.sh"
   $_download_directory     = "jetty-distribution-${jetty::version}"
   $_download_file_name     = "${_download_directory}.${jetty::archive_type}"
@@ -55,6 +56,11 @@ class jetty::install inherits jetty {
     require         => User[$::jetty::user],
   }
 
+  file { $_jetty_run:
+    ensure => directory,
+    owner  => $::jetty::user,
+    group  => $::jetty::group,
+  } ->
   file { '/etc/init.d/jetty':
     ensure => link,
     target => $_jetty_sh,
@@ -65,6 +71,10 @@ class jetty::install inherits jetty {
   file { '/var/log/jetty':
     ensure => link,
     target => $_jetty_logs,
+  } ->
+  file { '/var/run/jetty':
+    ensure => link,
+    target => $_jetty_run,
   } ->
   file { $_jetty_tmp:
     ensure => directory,
