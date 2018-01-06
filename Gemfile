@@ -11,7 +11,7 @@ group :development, :test do
   gem 'rubocop', :require => false
 end
 
-if puppetversion = ENV['PUPPET_GEM_VERSION']
+if puppetversion = ENV.fetch('PUPPET_GEM_VERSION', '5.3.3')
   gem 'puppet', puppetversion, :require => false
 else
   gem 'puppet', :require => false
