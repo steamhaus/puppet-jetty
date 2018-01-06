@@ -37,11 +37,11 @@ class jetty::install inherits jetty {
   file { $_jetty_home:
     ensure => link,
     target => "${::jetty::root}/${_download_directory}",
-  } ->
-  file { "${::jetty::root}/${_download_directory}":
+  }
+  -> file { "${::jetty::root}/${_download_directory}":
     ensure => directory,
-  } ->
-  archive { $_tmp_download_file_name:
+  }
+  -> archive { $_tmp_download_file_name:
     ensure          => present,
     source          => $_download_url,
     checksum_url    => $_download_url_checksum,
@@ -60,23 +60,23 @@ class jetty::install inherits jetty {
     ensure => directory,
     owner  => $::jetty::user,
     group  => $::jetty::group,
-  } ->
-  file { '/etc/init.d/jetty':
+  }
+  -> file { '/etc/init.d/jetty':
     ensure => link,
     target => $_jetty_sh,
     owner  => 'root',
     group  => 'root',
     mode   => '0750',
-  } ->
-  file { '/var/log/jetty':
+  }
+  -> file { '/var/log/jetty':
     ensure => link,
     target => $_jetty_logs,
-  } ->
-  file { '/var/run/jetty':
+  }
+  -> file { '/var/run/jetty':
     ensure => link,
     target => $_jetty_run,
-  } ->
-  file { $_jetty_tmp:
+  }
+  -> file { $_jetty_tmp:
     ensure => directory,
   }
 }

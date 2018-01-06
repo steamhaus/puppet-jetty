@@ -60,8 +60,8 @@ class jetty(
   contain jetty::config
   contain jetty::service
 
-  Class['::jetty::install'] ->
-  Class['::jetty::config'] ~>
-  Class['::jetty::service']
+  Class['::jetty::install']
+  -> Class['::jetty::config']
+  ~> Class['::jetty::service']
 }
 
