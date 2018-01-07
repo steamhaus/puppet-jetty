@@ -8,4 +8,4 @@ hierarchy:
     path: "os/%{facts.os.name}-%{facts.os.release.major}"
     
   - name: "common"
-    path: "common.yaml"
+    path: "common.yml"
