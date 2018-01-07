@@ -1,8 +1,11 @@
 ---
 sudo: false
 language: ruby
+before_install:
+  - gem update --system
+  - gem --version
 bundler_args: --without system_tests
-script: 'bundle exec rake spec'
+script: 'bundle exec rake test'
 matrix:
   fast_finish: true
   include:
