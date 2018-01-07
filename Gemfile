@@ -2,11 +2,6 @@
 
 source 'https://rubygems.org/'
 
-default_puppet_version = '4.10.9'
-puppet_version         = ENV.fetch('PUPPET_VERSION', default_puppet_version)
-
-gem 'puppet', puppet_version
-
 group :development, :test do
   gem 'json'
   gem 'metadata-json-lint'
@@ -16,4 +11,10 @@ group :development, :test do
   gem 'rake'
   gem 'rspec-puppet'
   gem 'rubocop'
+end
+
+if puppet_version = ENV['PUPPET_VERSION']
+  gem 'puppet', puppet_version
+else
+  gem 'puppet'
 end
