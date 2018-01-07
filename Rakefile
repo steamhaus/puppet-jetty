@@ -13,10 +13,10 @@ rescue LoadError => le
 end
 
 exclude_paths = [
-  "bundle/**/*",
-  "pkg/**/*",
-  "vendor/**/*",
-  "spec/**/*.pp",
+  'bundle/**/*',
+  'pkg/**/*',
+  'vendor/**/*',
+  'spec/**/*.pp'
 ]
 
 Rake::Task[:lint].clear
@@ -40,10 +40,11 @@ task :contributors do
   system("git log --format='%aN' | sort -u > CONTRIBUTORS")
 end
 
-desc 'Run syntax, lint, and spec tests.'
+desc 'Run syntax, metadata_lint, lint, rubocop and spec.'
 task :test => [
-  :metadata_lint,
   :syntax,
+  :metadata_lint,
   :lint,
+  :rubocop,
   :spec
 ]
