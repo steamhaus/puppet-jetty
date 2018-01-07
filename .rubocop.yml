@@ -1,0 +1,21 @@
+Metrics/BlockLength:
+  Max: 500
+
+Metrics/LineLength:
+  Max: 132
+
+Style/SymbolArray:
+  Exclude:
+    - Rakefile
+
+Style/HashSyntax:
+  Exclude:
+    - Rakefile
+
+Style/RegexpLiteral:
+  Exclude:
+    - 'spec/classes/jetty_spec.rb'
+
+Style/BracesAroundHashParameters:
+  Exclude:
+    - 'spec/classes/jetty_spec.rb'
