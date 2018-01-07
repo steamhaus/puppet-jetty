@@ -1,0 +1,32 @@
+AllCops:
+  TargetRubyVersion: 2.3
+
+Metrics/BlockLength:
+  Max: 500
+
+Metrics/LineLength:
+  Max: 150
+
+Style/SymbolArray:
+  Exclude:
+    - Rakefile
+
+Style/HashSyntax:
+  Exclude:
+    - Rakefile
+
+Style/RegexpLiteral:
+  Exclude:
+    - 'spec/classes/jetty_spec.rb'
+
+Style/BracesAroundHashParameters:
+  Exclude:
+    - 'spec/classes/jetty_spec.rb'
+
+Lint/AssignmentInCondition:
+  Exclude:
+    - Gemfile
+
+Bundler/DuplicatedGem:
+  Exclude:
+    - Gemfile

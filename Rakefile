@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'bundler/setup'
 require 'puppetlabs_spec_helper/rake_tasks'
 require 'puppet-lint/tasks/puppet-lint'
@@ -6,15 +8,15 @@ require 'metadata-json-lint/rake_task'
 
 begin
   require 'puppet_blacksmith/rake_tasks'
-rescue LoadError => le# rubocop:disable Lint/HandleExceptions
-  $stderr.puts le.message
+rescue LoadError => le
+  warn(le.message)
 end
 
 exclude_paths = [
-  "bundle/**/*",
-  "pkg/**/*",
-  "vendor/**/*",
-  "spec/**/*.pp",
+  'bundle/**/*',
+  'pkg/**/*',
+  'vendor/**/*',
+  'spec/**/*.pp'
 ]
 
 Rake::Task[:lint].clear
@@ -28,21 +30,21 @@ end
 
 PuppetSyntax.exclude_paths = exclude_paths
 
-desc "Run acceptance tests"
+desc 'Run acceptance tests'
 RSpec::Core::RakeTask.new(:acceptance) do |t|
   t.pattern = 'spec/acceptance'
 end
 
-desc "Populate CONTRIBUTORS file"
+desc 'Populate CONTRIBUTORS file'
 task :contributors do
   system("git log --format='%aN' | sort -u > CONTRIBUTORS")
 end
 
-desc "Run syntax, lint, and spec tests."
+desc 'Run syntax, metadata_lint, lint, rubocop and spec.'
 task :test => [
-  :metadata_lint,
   :syntax,
+  :metadata_lint,
   :lint,
-  :spec,
+  :rubocop,
+  :spec
 ]
-

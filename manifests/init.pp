@@ -42,6 +42,7 @@ class jetty(
   Stdlib::Absolutepath      $root,
   Stdlib::Absolutepath      $base,
   String                    $version,
+  Optional[String]          $service_name,
   Enum['running', 'stoped'] $service_ensure,
   Boolean                   $manage_user,
   String                    $user,
@@ -60,8 +61,8 @@ class jetty(
   contain jetty::config
   contain jetty::service
 
-  Class['::jetty::install'] ->
-  Class['::jetty::config'] ~>
-  Class['::jetty::service']
+  Class['::jetty::install']
+  -> Class['::jetty::config']
+  ~> Class['::jetty::service']
 }
 
