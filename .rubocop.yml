@@ -22,3 +22,11 @@ Style/RegexpLiteral:
 Style/BracesAroundHashParameters:
   Exclude:
     - 'spec/classes/jetty_spec.rb'
+
+Lint/AssignmentInCondition:
+  Exclude:
+    - Gemfile
+
+Bundler/DuplicatedGem:
+  Exclude:
+    - Gemfile
