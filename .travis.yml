@@ -1,15 +1,19 @@
 ---
+sudo: false
 language: ruby
-rvm:
-  - 2.3
+bundler_args: --without system_tests
 script: 'bundle exec rake spec'
+matrix:
+  fast_finish: true
+  include:
+    - rvm: 2.3.4
+      env: PUPPET_VERSION=4.10.9
+    - rvm: 2.3.4
+      env: PUPPET_VERSION=5.3.3
 branches:
   only:
     - master
     - develop
-env:
-  - PUPPET_VERSION=4.10.9
-  - PUPPET_VERSION=5.3.3
 notifications:
   email: false
 gemfile: .gemfile
