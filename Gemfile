@@ -2,8 +2,10 @@
 
 source 'https://rubygems.org/'
 
-puppetversion = ENV.fetch('PUPPET_GEM_VERSION', '5.3.3')
-gem 'puppet', puppetversion
+default_puppet_version = '4.10.9'
+puppet_version         = ENV.fetch('PUPPET_VERSION', default_puppet_version)
+
+gem 'puppet', puppet_version
 
 group :development, :test do
   gem 'json'
