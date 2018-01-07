@@ -10,4 +10,8 @@ RSpec.configure do |c|
     operatingsystem: 'CentOS',
     osfamily: 'RedHat'
   }
+
+  c.color = true
+  c.tty = true
+  c.formatter = :documentation
 end
