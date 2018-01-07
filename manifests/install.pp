@@ -1,16 +1,21 @@
 ##
 # = class: jetty::install - The installation of jetty's stuff
 class jetty::install inherits jetty {
-
-  $_jetty_home             = "${jetty::root}/jetty"
-  $_jetty_tmp              = "${_jetty_home}/tmp"
-  $_jetty_logs             = "${_jetty_home}/logs"
-  $_jetty_run              = "${_jetty_home}/run"
-  $_jetty_sh               = "${_jetty_home}/bin/jetty.sh"
+  $_jetty_home             = [$jetty::root, 'jetty'].join('/')
+  $_jetty_tmp              = [$_jetty_home, 'tmp'].join('/')
+  $_jetty_logs             = [$_jetty_home, 'logs'].join('/')
+  $_jetty_run              = [$_jetty_home, 'run'].join('/')
+  $_jetty_sh               = [$_jetty_home, 'bin', 'jetty.sh'].join('/')
   $_download_directory     = "jetty-distribution-${jetty::version}"
   $_download_file_name     = "${_download_directory}.${jetty::archive_type}"
-  $_tmp_download_file_name = "/tmp/${_download_file_name}"
-  $_download_url           = "${jetty::mirror}/org/eclipse/jetty/jetty-distribution/${jetty::version}/${_download_file_name}"
+  $_tmp_download_file_name = ['/tmp', $_download_file_name].join('/')
+  $_download_url           = [$jetty::mirror,
+                              'org',
+                              'eclipse',
+                              'jetty',
+                              'jetty-distribution',
+                              $jetty::version,
+                              $_download_file_name].join('/')
   $_download_url_checksum  = "${_download_url}.${jetty::checksum_type}"
 
   include '::archive'
