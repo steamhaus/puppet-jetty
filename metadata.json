@@ -1,8 +1,8 @@
 {
   "name": "jjuarez-jetty",
   "version": "0.2.0",
-  "author": "J.Juarez",
-  "license": "MIT License",
+  "author": "Javier Juarez",
+  "license": "MIT",
   "summary": "A puppet module to install a basic Jetty Web Server hihgly inspired on maestrodev/jetty",
   "source": "https://github.com/jjuarez/puppet-jetty",
   "project_page": "https://github.com/jjuarez/puppet-jetty",
