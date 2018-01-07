@@ -1,9 +1,9 @@
 {
   "name": "jjuarez-jetty",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "author": "J.Juarez",
-  "license": "MIT",
-  "summary": "A puppet 4 module to install a basic Jetty Web Server hihgly inspired on maestrodev/jetty",
+  "license": "MIT License",
+  "summary": "A puppet module to install a basic Jetty Web Server hihgly inspired on maestrodev/jetty",
   "source": "https://github.com/jjuarez/puppet-jetty",
   "project_page": "https://github.com/jjuarez/puppet-jetty",
   "issues_url": "https://github.com/jjuarez/puppet-jetty/issues",
@@ -21,6 +21,10 @@
     }
   ],
   "dependencies": [
+    {
+      "name": "puppet",
+      "version_requirement": ">=4.0.0 <6.0.0"
+    },
     {
       "name": "puppetlabs/stdlib",
       "version_requirement": ">=4.24.0 <5.0.0"
