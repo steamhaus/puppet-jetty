@@ -42,6 +42,7 @@ class jetty(
   Stdlib::Absolutepath      $root,
   Stdlib::Absolutepath      $base,
   String                    $version,
+  Optional[String]          $service_name,
   Enum['running', 'stoped'] $service_ensure,
   Boolean                   $manage_user,
   String                    $user,
