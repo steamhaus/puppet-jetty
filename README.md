@@ -29,7 +29,7 @@ A module to install Jetty and configure the service. This module has been highly
     manage_user     => true,
     user            => 'jettyuser',
     group           => 'jettygroup',
-    mirror          => 'http://central.maven.org/maven2/',
+    mirror          => 'https://repo1.maven.org/maven2',
     archive_type    => 'tar.gz',
     checksum_type   => 'sha1',
     jetty_arguments => 'jetty.option=value'
@@ -49,7 +49,7 @@ This is a puppet 4 module, the recomendation is to use the binding capabilities 
     jetty::manage_user: true
     jetty::user: 'jettyuser'
     jetty::group: 'jettygroup'
-    jetty::mirror: 'http://central.maven.org/maven2/'
+    jetty::mirror: 'https://repo1.maven.org/maven2'
     jetty::archive_type: 'tar.gz'
     jetty::checksum_type: 'sha1'
     jetty_arguments: 'jetty.option=value'
@@ -76,7 +76,7 @@ You must include an additional parameter in the manifest called configuration, w
     jetty::manage_user: true
     jetty::user: 'jettyuser'
     jetty::group: 'jettygroup'
-    jetty::mirror: 'http://central.maven.org/maven2/'
+    jetty::mirror: 'https://repo1.maven.org/maven2/'
     jetty::archive_type: 'tar.gz'
     jetty::checksum_type: 'sha1'
     jetty_arguments: 'jetty.some_option=some_value'
