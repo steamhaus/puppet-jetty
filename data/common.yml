@@ -3,7 +3,7 @@ jetty::root: '/opt'
 jetty::base: '/opt/web'
 jetty::tmpdir: '/opt/jetty/tmp'
 jetty::version: '9.4.8.v20171121'
-jetty::mirror: 'https://central.maven.org/maven2'
+jetty::mirror: 'https://repo1.maven.org/maven2/'
 jetty::archive_type: 'tar.gz'
 jetty::checksum_type: 'sha1'
 jetty::manage_user: true
