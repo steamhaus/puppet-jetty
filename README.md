@@ -49,7 +49,7 @@ This is a puppet 4 module, the recomendation is to use the binding capabilities 
     jetty::manage_user: true
     jetty::user: 'jettyuser'
     jetty::group: 'jettygroup'
-    jetty::mirror: 'https://repo1.maven.org/maven2/'
+    jetty::mirror: 'https://repo1.maven.org/maven2'
     jetty::archive_type: 'tar.gz'
     jetty::checksum_type: 'sha1'
     jetty_arguments: 'jetty.option=value'
