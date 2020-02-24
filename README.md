@@ -29,7 +29,7 @@ A module to install Jetty and configure the service. This module has been highly
     manage_user     => true,
     user            => 'jettyuser',
     group           => 'jettygroup',
-    mirror          => 'https://repo1.maven.org/maven2/',
+    mirror          => 'https://repo1.maven.org/maven2',
     archive_type    => 'tar.gz',
     checksum_type   => 'sha1',
     jetty_arguments => 'jetty.option=value'
